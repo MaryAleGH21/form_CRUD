@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :zombies
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 get 'users/new'
 post 'users/create'
@@ -8,3 +9,4 @@ post 'users/:id', to: 'users#update', as: 'users_update'
 delete 'users/:id', to: 'users#destroy', as: 'users_destroy'
 end
 
+#Aprender rutas para hacer CRUD
