@@ -1,0 +1,22 @@
+<h1> Formulario </h1>
+
+<% if @user.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@user.errors.count, "error") %> This email already exist:</h2>
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<form method="post" action="<%=users_update_path(@user) %>"> 
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+  <label for="name">Nombre:</label><br>
+  <input type="text" name="name" value="<%= @user.name %>" ><br>
+  <label for="email">Email:</label><br>
+  <input type="email" name="email" value="<%=@user.email %>"><br><br>
+  <input type="submit" value="Update">
+</form>
+<%= link_to('volver', users_index_path)%>

@@ -1,0 +1,7 @@
+<h1> Users </h1>
+
+<%= link_to('New user', users_new_path)  %>
+<% @users.each do |user| %>
+<p> <%= user.name %> | <%= user.email %> | <%= link_to('editar', users_edit_path(user)) %> | <%= link_to('eliminar', users_destroy_path(user), method: :delete, data:{confirm: 'Estás seguro?'})%> </p> 
+
+<% end %>
